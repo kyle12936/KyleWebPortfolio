@@ -10,6 +10,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get('/Kyle_Miranda_Resume.pdf', (req, res) => {
+  res.download(path.join(__dirname, 'Kyle_Miranda_Resume.pdf'));
+});
+
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
