@@ -472,6 +472,29 @@
 
     .project-stat::before { content: '★'; font-size: 0.625rem; }
 
+    .project-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.25rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.6875rem;
+      color: var(--ink-2);
+      border: 1px solid var(--border-2);
+      border-radius: 3px;
+      padding: 0.25rem 0.625rem;
+      text-decoration: none;
+      transition: color 0.2s, border-color 0.2s;
+      letter-spacing: 0.02em;
+    }
+
+    .project-link:hover { color: var(--green); border-color: var(--green); }
+
     .exp-list {
       display: flex;
       flex-direction: column;
@@ -821,6 +844,12 @@
           <span class="p-tag">Angular</span>
           <span class="p-tag">ASP.NET Core</span>
           <span class="p-tag">Azure</span>
+        </div>
+        <div class="project-links">
+          <a href="https://www.youtube.com/watch?v=eteo8kKVcvY" target="_blank" class="project-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+            Demo Video
+          </a>
         </div>
       </div>
 
