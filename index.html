@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kyle Miranda — Software Engineer</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <style>
@@ -45,7 +42,6 @@
       cursor: none;
     }
 
-    /* ── CUSTOM CURSOR ── */
     .cursor {
       position: fixed;
       width: 8px; height: 8px;
@@ -69,7 +65,6 @@
       transition: transform 0.15s ease, width 0.2s, height 0.2s, border-color 0.2s;
     }
 
-    /* ── SCANLINE OVERLAY ── */
     body::before {
       content: '';
       position: fixed;
@@ -85,7 +80,6 @@
       z-index: 1000;
     }
 
-    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -150,7 +144,6 @@
       50% { opacity: 0.3; }
     }
 
-    /* ── HERO ── */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -160,7 +153,6 @@
       overflow: hidden;
     }
 
-    /* Grid background */
     .hero::after {
       content: '';
       position: absolute;
@@ -231,7 +223,7 @@
       width: 8px; height: 0.85em;
       background: var(--green);
       position: relative;
-      top: 0.5em;
+      top: 0.2em;
       margin-left: 2px;
       animation: blink 1s step-end infinite;
     }
@@ -296,7 +288,6 @@
 
     .btn-ghost:hover { border-color: var(--green); color: var(--green); }
 
-    /* ── SECTION COMMON ── */
     .section {
       max-width: 1100px;
       margin: 0 auto;
@@ -336,7 +327,6 @@
 
     .section h2 em { color: var(--green); font-style: normal; }
 
-    /* ── SKILLS / TECH STACK ── */
     .tech-section {
       background: var(--bg-2);
       border-top: 1px solid var(--border);
@@ -397,7 +387,6 @@
     .tech-tag.blue  { color: var(--blue);  background: rgba(79,195,247,0.07);  border-color: rgba(79,195,247,0.15);  }
     .tech-tag.red   { color: var(--red);   background: rgba(255,107,107,0.07); border-color: rgba(255,107,107,0.15); }
 
-    /* ── PROJECTS ── */
     .projects-grid {
       display: grid;
       grid-template-columns: 2fr 1fr;
@@ -412,7 +401,6 @@
     .project-card {
       background: var(--bg-2);
       padding: 1.75rem;
-      text-decoration: none;
       color: inherit;
       display: flex;
       flex-direction: column;
@@ -426,7 +414,6 @@
     .project-card--featured { grid-column: 1; grid-row: 1; }
     .project-card--small    { grid-column: 2; grid-row: 1; }
     .project-card--wide     { grid-column: 1 / -1; grid-row: 2; }
-    .project-card--third    { grid-column: span 2; }
 
     .project-card-top {
       display: flex;
@@ -444,14 +431,6 @@
       justify-content: center;
       font-size: 1rem;
     }
-
-    .project-arrow {
-      color: var(--ink-3);
-      font-size: 1rem;
-      transition: color 0.2s, transform 0.2s;
-    }
-
-    .project-card:hover .project-arrow { color: var(--green); transform: translate(2px,-2px); }
 
     .project-name {
       font-family: var(--display);
@@ -493,7 +472,6 @@
 
     .project-stat::before { content: '★'; font-size: 0.625rem; }
 
-    /* ── EXPERIENCE ── */
     .exp-list {
       display: flex;
       flex-direction: column;
@@ -542,7 +520,6 @@
       line-height: 1.75;
     }
 
-    /* ── ABOUT / TERMINAL ── */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 400px;
@@ -611,13 +588,9 @@
       padding: 1.25rem;
       font-size: 0.8125rem;
       line-height: 2;
-      counter-reset: line;
     }
 
-    .code-line {
-      display: flex;
-      gap: 1.5rem;
-    }
+    .code-line { display: flex; gap: 1.5rem; }
 
     .code-line-num {
       color: var(--ink-3);
@@ -634,7 +607,6 @@
     .nm  { color: var(--green); }
     .op  { color: var(--ink-2); }
 
-    /* ── CONTACT ── */
     .contact-wrap {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -665,54 +637,11 @@
 
     .contact-link:last-child { border-bottom: none; }
     .contact-link:hover { background: var(--bg-3); color: var(--green); }
-
     .contact-link-prefix { color: var(--ink-3); }
-
     .contact-link-label { flex: 1; }
-
     .contact-link-val { color: var(--ink-2); }
-
     .contact-link:hover .contact-link-val { color: var(--green); }
 
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.875rem;
-    }
-
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .form-field label {
-      font-size: 0.6875rem;
-      color: var(--ink-3);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .form-field input,
-    .form-field textarea {
-      font-family: var(--mono);
-      font-size: 0.8125rem;
-      color: var(--ink);
-      background: var(--bg-2);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 0.625rem 0.875rem;
-      outline: none;
-      transition: border-color 0.2s;
-      resize: none;
-    }
-
-    .form-field input:focus,
-    .form-field textarea:focus { border-color: var(--green); }
-
-    .form-field textarea { height: 100px; line-height: 1.7; }
-
-    /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
       padding: 1.5rem 2.5rem;
@@ -725,12 +654,10 @@
 
     .footer-copy { font-size: 0.75rem; color: var(--ink-3); }
     .footer-copy span { color: var(--green); }
-
     .footer-links { display: flex; gap: 1.5rem; }
     .footer-links a { font-size: 0.75rem; color: var(--ink-3); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--green); }
 
-    /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -741,24 +668,18 @@
     .hero-sub        { animation: fadeUp 0.6s ease both 0.3s; }
     .hero-actions    { animation: fadeUp 0.6s ease both 0.4s; }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: 0 1.25rem; }
       .nav-status { display: none; }
       .hero { padding: 0 1.25rem; }
       .section { padding: 4rem 1.25rem; }
-
       .tech-grid { grid-template-columns: 1fr 1fr; }
-
       .project-card--featured,
       .project-card--small,
       .project-card--wide { grid-column: 1 / -1; grid-row: auto; }
-
       .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
-
       .about-grid,
       .contact-wrap { grid-template-columns: 1fr; }
-
       footer { flex-direction: column; gap: 0.75rem; }
     }
   </style>
@@ -768,9 +689,8 @@
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
-  <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">kyle_miranda</a>
+    <a href="/" class="nav-logo">kyle_miranda</a>
     <ul class="nav-links">
       <li><a href="#projects">projects</a></li>
       <li><a href="#experience">experience</a></li>
@@ -783,10 +703,8 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-
       <div class="terminal-window">
         <div class="terminal-bar">
           <div class="t-dot t-red"></div>
@@ -804,8 +722,8 @@
               {<br>
               &nbsp;&nbsp;<span class="t-key">"name"</span>: <span class="t-str">"Kyle Miranda"</span>,<br>
               &nbsp;&nbsp;<span class="t-key">"role"</span>: <span class="t-str">"Software Developer"</span>,<br>
-              &nbsp;&nbsp;<span class="t-key">"focus"</span>: [<span class="t-str">"systems"</span>, <span class="t-str">"distributed"</span>, <span class="t-str">"open-source"</span>],<br>
-              &nbsp;&nbsp;<span class="t-key">"experience"</span>: <span class="t-num">6</span>,<br>
+              &nbsp;&nbsp;<span class="t-key">"focus"</span>: [<span class="t-str">"full-stack"</span>, <span class="t-str">"VR/XR"</span>, <span class="t-str">"AI"</span>],<br>
+              &nbsp;&nbsp;<span class="t-key">"experience"</span>: <span class="t-num">1</span>,<br>
               &nbsp;&nbsp;<span class="t-key">"available"</span>: <span class="t-val">true</span><br>
               }
             </span>
@@ -824,18 +742,16 @@
       </h1>
 
       <p class="hero-sub">
-        UCF Computer Science grad specializing in <span>full-stack development</span>, VR/XR experiences, and AI-powered applications. Currently a Experience Developer Intern at Vu Technologies.
+        UCF Computer Science grad specializing in <span>full-stack development</span>, VR/XR experiences, and AI-powered applications. Currently an Experience Developer Intern at Vu Technologies.
       </p>
 
       <div class="hero-actions">
         <a href="#projects" class="btn btn-primary">$ view projects</a>
         <a href="#contact" class="btn btn-ghost">→ get in touch</a>
       </div>
-
     </div>
   </section>
 
-  <!-- TECH STACK -->
   <div class="tech-section">
     <div class="tech-inner">
       <div class="section-label"><span>//</span> tech stack</div>
@@ -853,7 +769,7 @@
           </div>
         </div>
         <div class="tech-cell">
-          <div class="tech-cell-label">Infrastructure</div>
+          <div class="tech-cell-label">Tools</div>
           <div class="tech-tags">
             <span class="tech-tag amber">Git</span>
             <span class="tech-tag amber">GitHub Actions</span>
@@ -863,7 +779,7 @@
           </div>
         </div>
         <div class="tech-cell">
-          <div class="tech-cell-label">Databases</div>
+          <div class="tech-cell-label">Frontend & Data</div>
           <div class="tech-tags">
             <span class="tech-tag blue">React</span>
             <span class="tech-tag blue">Next.js</span>
@@ -886,22 +802,17 @@
     </div>
   </div>
 
-  <!-- PROJECTS -->
   <section class="section" id="projects">
     <div class="section-label"><span>//</span> selected projects</div>
     <h2>Things I've <em>built</em></h2>
 
     <div class="projects-grid">
-
-      <a href="#" class="project-card project-card--featured">
+      <div class="project-card project-card--featured">
         <div class="project-card-top">
           <div class="project-icon">🥽</div>
-          <span class="project-arrow">↗</span>
         </div>
         <div class="project-name">Dr. Hemo's Great Escape</div>
-        <div class="project-desc">
-          Transformed a legacy browser-based game for the UCF College of Medicine into a multiplayer VR escape room teaching hematology and oncology on Meta Quest devices. Achieved a 54% performance improvement while enhancing visual and gameplay quality. Engineered a full-stack faculty portal with Angular, ASP.NET Core, and Azure for tracking gameplay analytics and student learning outcomes.
-        </div>
+        <div class="project-desc">Transformed a legacy browser-based game for the UCF College of Medicine into a multiplayer VR escape room teaching hematology and oncology on Meta Quest devices. Achieved a 54% performance improvement while enhancing visual and gameplay quality. Engineered a full-stack faculty portal with Angular, ASP.NET Core, and Azure for tracking gameplay analytics and student learning outcomes.</div>
         <div class="project-stat">UCF Senior Capstone — Jan 2025 to Aug 2025</div>
         <div class="project-stack">
           <span class="p-tag">Unity</span>
@@ -911,12 +822,11 @@
           <span class="p-tag">ASP.NET Core</span>
           <span class="p-tag">Azure</span>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="project-card project-card--small">
+      <div class="project-card project-card--small">
         <div class="project-card-top">
           <div class="project-icon">🌿</div>
-          <span class="project-arrow">↗</span>
         </div>
         <div class="project-name">EcoSense</div>
         <div class="project-desc">Led a team of 4 to win 1st place at UCF's KnightHacks. A smart platform helping homeowners reduce energy costs and carbon footprint using real-time IoT insights and RAG-powered suggestions.</div>
@@ -928,12 +838,11 @@
           <span class="p-tag">Pinecone</span>
           <span class="p-tag">Clerk</span>
         </div>
-      </a>
+      </div>
 
-      <a href="#" class="project-card project-card--wide">
+      <div class="project-card project-card--wide">
         <div class="project-card-top">
           <div class="project-icon">🗺️</div>
-          <span class="project-arrow">↗</span>
         </div>
         <div class="project-name">Shell Guide</div>
         <div class="project-desc">Full-stack itinerary generator with location-based recommendations, dynamic user data management, and real-time interactions built at ShellHacks.</div>
@@ -944,19 +853,16 @@
           <span class="p-tag">React</span>
           <span class="p-tag">Node.js</span>
         </div>
-      </a>
-
+      </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
   <section class="section" id="experience" style="padding-top:0">
     <div class="section-label"><span>//</span> experience</div>
     <h2>Where I've <em>worked</em></h2>
-
     <div class="exp-list">
       <div class="exp-item">
-        <div class="exp-date">May 2026 - Present</div>
+        <div class="exp-date">May 2026 — Present</div>
         <div>
           <div class="exp-role">Experience Developer Intern</div>
           <div class="exp-company">Vu Technologies</div>
@@ -966,11 +872,9 @@
     </div>
   </section>
 
-  <!-- LEADERSHIP -->
   <section class="section" id="leadership" style="padding-top:0">
     <div class="section-label"><span>//</span> leadership</div>
     <h2>How I've <em>led</em></h2>
-
     <div class="exp-list">
       <div class="exp-item">
         <div class="exp-date">Jan 2026 — Present</div>
@@ -988,27 +892,25 @@
           <div class="exp-desc">Increased member involvement and recruitment by 40% in a 600+ member student organization. Expanded visibility to 50,000+ accounts and 600+ in-person attendees by organizing Sayaw, a large-scale cultural showcase — establishing FSA as one of the most active cultural orgs on campus.</div>
         </div>
       </div>
+      <div class="exp-item">
+        <div class="exp-date">Aug 2023 — Dec 2023</div>
+        <div>
+          <div class="exp-role">Team Captain</div>
+          <div class="exp-company">Men's Volleyball Club, UCF</div>
+          <div class="exp-desc">Led a team of 14 players, fostering teamwork, communication, and strategic on-court performance. Organized practices, coordinated skill-building drills, and motivated teammates through a full competitive season.</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section class="section" id="about" style="padding-top:0">
     <div class="section-label"><span>//</span> about</div>
     <h2>The human <em>behind</em> the code</h2>
-
     <div class="about-grid">
       <div class="about-text">
-        <p>
-          I studied <strong>Computer Science at the University of Central Florida</strong>, graduating in August 2025. My coursework spanned data structures, machine learning, operating systems, and AI for game programming — with a heavy lean toward building things that actually ship.
-        </p>
-        <p>
-          I love working at the intersection of <strong>software and experience</strong> — whether that's a VR escape room for med students, a hackathon-winning IoT platform, or a full-stack web app. If it's interactive and solves a real problem, I'm in.
-        </p>
-        <p>
-          Outside of code, I've led 600+ member student orgs, captained a volleyball team, and competed at hackathons across Florida. I believe great software is built by people who can collaborate as well as they can code.
-        </p>
-
+        <p>I studied <strong>Computer Science at the University of Central Florida</strong>, graduating in August 2025. My coursework spanned data structures, machine learning, operating systems, and AI for game programming — with a heavy lean toward building things that actually ship.</p>
+        <p>I love working at the intersection of <strong>software and experience</strong> — whether that's a VR escape room for med students, a hackathon-winning IoT platform, or a full-stack web app. If it's interactive and solves a real problem, I'm in.</p>
+        <p>Outside of code, I've led 600+ member student orgs, captained a volleyball team, and competed at hackathons across Florida. I believe great software is built by people who can collaborate as well as they can code.</p>
         <div class="about-metrics">
           <div class="metric">
             <span class="metric-val">UCF</span>
@@ -1057,11 +959,9 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section class="section" id="contact" style="padding-top:0">
     <div class="section-label"><span>//</span> contact</div>
     <h2>Let's <em>connect</em></h2>
-
     <div class="contact-wrap">
       <div class="contact-links">
         <a href="mailto:kylemiranda0415@gmail.com" class="contact-link">
@@ -1074,7 +974,7 @@
           <span class="contact-link-label">LinkedIn</span>
           <span class="contact-link-val">linkedin.com/in/kyle-miranda</span>
         </a>
-        <a href="https://www.overleaf.com/download/project/698e38dd29116b84ef0eb2f0/build/19e933eefca-846545245aa09faf/output/output.pdf?compileGroup=standard&clsiserverid=clsi-pre-emp-c3d-c-f-2h6q&enable_pdf_caching=true&popupDownload=true&editorId=55818563-9462-4955-a1b5-7c34d4e02def" class="contact-link">
+        <a href="/Kyle_Miranda_Resume.pdf" download="Kyle_Miranda_Resume.pdf" class="contact-link">
           <span class="contact-link-prefix">file://</span>
           <span class="contact-link-label">Résumé</span>
           <span class="contact-link-val">download PDF ↓</span>
@@ -1083,11 +983,10 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <p class="footer-copy">© 2026 <span>kyle_miranda</span>. deployed with Vercel, built with curiosity.</p>
     <div class="footer-links">
-      <a href="#">↑ back to top</a>
+      <a href="#top">↑ back to top</a>
       <a href="https://github.com/kyle12936/KyleWebPortfolio" target="_blank">source</a>
     </div>
   </footer>
