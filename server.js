@@ -15,7 +15,7 @@ app.get('/Kyle_Miranda_Resume.pdf', (req, res) => {
 });
 
 app.get('/favicon.png', (req, res) => {
-  res.sendFile(path.join(__dirname, 'favicon.png'));
+  res.sendFile(path.join(__dirname, 'favicon.ico'));
 });
 
 app.listen(PORT, () => {
