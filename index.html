@@ -599,6 +599,10 @@
     .exp-company { font-size: 0.8125rem; color: var(--green); margin-bottom: 0.75rem; transition: color 0.35s; }
     .exp-desc { font-size: 0.8125rem; color: var(--ink-2); line-height: 1.75; transition: color 0.35s; }
 
+    .exp-bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+    .exp-bullets li { font-size: 0.8125rem; color: var(--ink-2); line-height: 1.6; padding-left: 1.1rem; position: relative; transition: color 0.35s; }
+    .exp-bullets li::before { content: "▸"; position: absolute; left: 0; color: var(--green); }
+
     /* ── ABOUT ── */
     .about-grid {
       display: grid;
@@ -950,11 +954,16 @@
     <h2>Where I've <em>worked</em></h2>
     <div class="exp-list">
       <div class="exp-item">
-        <div class="exp-date">May 2026 — Present</div>
+        <div class="exp-date">May 2026 — Aug 2026</div>
         <div>
           <div class="exp-role">Experience Developer Intern</div>
           <div class="exp-company">Vu Technologies</div>
-          <div class="exp-desc">Developing interactive and immersive digital experiences. Working across the full stack to build engaging software solutions that push the boundaries of user experience.</div>
+          <ul class="exp-bullets">
+            <li>Designed, developed, and deployed full-stack web applications for client-facing digital experiences.</li>
+            <li>Built responsive React front ends and Node.js/Express back ends with camera capture, image processing, API integrations, QR code sharing, and email delivery.</li>
+            <li>Collaborated directly with clients and sales teams to gather requirements, develop tailored solutions, and deliver interactive digital experiences for client activations.</li>
+            <li>Presented prototypes and technical solutions to clients and internal teams, incorporating feedback to improve functionality, usability, and overall user experience.</li>
+          </ul>
         </div>
       </div>
     </div>
