@@ -4,11 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kyle Miranda — Software Engineer</title>
+  <meta name="description" content="Kyle Miranda — full-stack developer specializing in VR/XR, AI-powered apps, and web development. UCF Computer Science grad." />
+
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Kyle Miranda — Software Engineer" />
+  <meta property="og:description" content="Full-stack developer specializing in VR/XR, AI-powered apps, and web development. UCF Computer Science grad." />
+  <meta property="og:image" content="android-chrome-512x512.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kyle Miranda — Software Engineer" />
+  <meta name="twitter:description" content="Full-stack developer specializing in VR/XR, AI-powered apps, and web development. UCF Computer Science grad." />
+  <meta name="twitter:image" content="android-chrome-512x512.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    a:focus-visible, button:focus-visible, input:focus-visible, label:focus-visible {
+      outline: 2px solid var(--green);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
 
     :root {
       --bg:       #0a0e12;
@@ -470,7 +492,7 @@
 
     .tech-tag.amber { color: var(--amber); background: rgba(255,209,102,0.07); border-color: rgba(255,209,102,0.15); }
     .tech-tag.green { color: var(--green); background: rgba(79,195,247,0.07);  border-color: rgba(79,195,247,0.15);  }
-    .tech-tag.blue  { color: var(--blue);  background: rgba(79,195,247,0.07);  border-color: rgba(79,195,247,0.15);  }
+    .tech-tag.blue  { color: var(--blue);  background: rgba(96,165,250,0.07);  border-color: rgba(96,165,250,0.15);  }
     .tech-tag.red   { color: var(--red);   background: rgba(255,107,107,0.07); border-color: rgba(255,107,107,0.15); }
 
     /* ── PROJECTS ── */
@@ -724,6 +746,11 @@
     .hero-sub        { animation: fadeUp 0.6s ease both 0.3s; }
     .hero-actions    { animation: fadeUp 0.6s ease both 0.4s; }
 
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .nav-links a.active { color: var(--green); }
+
     @media (max-width: 900px) {
       nav { padding: 0 1.25rem; }
       .nav-status { display: none; }
@@ -819,7 +846,7 @@
     </div>
   </section>
 
-  <div class="tech-section">
+  <div class="tech-section reveal">
     <div class="tech-inner">
       <div class="section-label"><span>//</span> tech stack</div>
       <div class="tech-grid">
@@ -869,7 +896,7 @@
     </div>
   </div>
 
-  <section class="section" id="projects">
+  <section class="section reveal" id="projects">
     <div class="section-label"><span>//</span> selected projects</div>
     <h2>Things I've <em>built</em></h2>
 
@@ -974,7 +1001,7 @@
     </div>
   </section>
 
-  <section class="section" id="experience" style="padding-top:0">
+  <section class="section reveal" id="experience" style="padding-top:0">
     <div class="section-label"><span>//</span> experience</div>
     <h2>Where I've <em>worked</em></h2>
     <div class="exp-list">
@@ -994,7 +1021,7 @@
     </div>
   </section>
 
-  <section class="section" id="leadership" style="padding-top:0">
+  <section class="section reveal" id="leadership" style="padding-top:0">
     <div class="section-label"><span>//</span> leadership</div>
     <h2>How I've <em>led</em></h2>
     <div class="exp-list">
@@ -1025,7 +1052,7 @@
     </div>
   </section>
 
-  <section class="section" id="about" style="padding-top:0">
+  <section class="section reveal" id="about" style="padding-top:0">
     <div class="section-label"><span>//</span> about</div>
     <h2>The human <em>behind</em> the code</h2>
     <div class="about-grid">
@@ -1081,7 +1108,7 @@
     </div>
   </section>
 
-  <section class="section" id="contact" style="padding-top:0">
+  <section class="section reveal" id="contact" style="padding-top:0">
     <div class="section-label"><span>//</span> contact</div>
     <h2>Let's <em>connect</em></h2>
     <div class="contact-wrap">
@@ -1166,6 +1193,37 @@
         localStorage.setItem('theme', 'dark');
       }
     });
+
+    // ── SCROLL REVEAL ──
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── ACTIVE NAV HIGHLIGHTING ──
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const navSections = Array.from(navLinks)
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = '#' + entry.target.id;
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === id);
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    navSections.forEach(section => navObserver.observe(section));
   </script>
 </body>
 </html>
